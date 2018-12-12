@@ -22,6 +22,10 @@
     file: "/home/student1/.ansible/roles/ansible-network.cisco_ios/parser_templates/cli/show_ip_bgp_summary.yaml"
     content: "{{ show_ip_bgp_summary.stdout.0 }}"
 
+- name: sean's debug
+  debug:
+    var: show_ip_bgp_summary
+
 - name: print out the output
   debug:
     var: bgp
