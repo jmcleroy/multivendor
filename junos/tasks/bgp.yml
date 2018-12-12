@@ -5,5 +5,6 @@
     dest: "{{playbook_dir}}/rendered_configs/{{inventory_hostname}}-bgp.txt"
 
 - name: push config to device
+  connection: netconf
   netconf_config:
     config: "{{ lookup('template', 'bgp.j2') }}"
