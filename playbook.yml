@@ -15,7 +15,7 @@
 #           PLATFORM: {{ansible_network_os}} MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
 
 - name: multivendor bgp example
-  hosts: rtr2
+  hosts: rtr4
   gather_facts: false
   connection: network_cli
   tasks:

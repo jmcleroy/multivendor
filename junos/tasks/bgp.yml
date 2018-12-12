@@ -1,0 +1,9 @@
+- name: template the configuration locally
+  connection: local
+  template:
+    src: bgp.j2
+    dest: "{{playbook_dir}}/rendered_configs/{{inventory_hostname}}-bgp.txt"
+
+# - name: push config to device
+#   cli_config:
+#     config: "{{ lookup('template', 'bgp.j2') }}"

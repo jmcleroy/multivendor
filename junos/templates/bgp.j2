@@ -1,0 +1,18 @@
+routing-options {
+    autonomous-system {{device[inventory_hostname].asn}};
+}
+protocols {
+    bgp {
+        group to-cisco {
+            type external;
+            multihop {
+                ttl 255;
+            }
+            neighbor {{hostvars.rtr2.private_ip}} {
+                description cisco;
+                local-address {{private_ip}};
+                peer-as {{device[rtr4].asn}};
+            }
+        }
+    }
+}
