@@ -1,0 +1,5 @@
+- name: template the configuration locally
+  connection: local
+  template:
+    src: bgp.j2
+    dst: "{{playbook_dir}}/{{inventory_hostname}}-bgp.txt"

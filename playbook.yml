@@ -12,5 +12,15 @@
       debug:
         msg: |
           {{inventory_hostname}}
-          MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
-          ******
+          PLATFORM: {{ansible_network_os}} MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
+
+---
+- name: multivendor playbook example
+  hosts: rtr3
+  gather_facts: false
+  connection: network_cli
+
+    - name: Run tasks/other.yaml instead of 'main'
+      include_role:
+        name: "{{ansible_network_os}}"
+        tasks_from: bgp.yml

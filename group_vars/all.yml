@@ -1,0 +1,13 @@
+device:
+  rtr1:
+    asn: "65001"
+    loopback: "10.0.0.1"
+  rtr2:
+    asn: "65001"
+    loopback: "10.0.0.2"
+  rtr3:
+    asn: "65001"
+    loopback: "10.0.0.3"
+  rtr4:
+    asn: "65001"
+    loopback: "10.0.0.4"
