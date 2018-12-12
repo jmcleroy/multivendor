@@ -13,4 +13,4 @@
 - name: push config to device
   connection: netconf
   junos_config:
-    src: bgp.j
+    src: bgp.j2
