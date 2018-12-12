@@ -25,5 +25,5 @@
   debug:
     msg: 'BGP STATUS {{peer}}:{{status}}'
   vars:
-    peer: '{{(output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-address"][0]["data"}}'
+    peer: '{{(output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-address"][0]["data"]}}'
     status: '{{(output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-state"][0]["data"]}}'
