@@ -29,6 +29,9 @@
     peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
     status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].timer else 'Down' }}"
 
-- name: 2nd debug test
-  debug:
-    msg: "{{peer}}"
+- name: set_fact peer
+  set_fact:
+    peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
+
+- name: set_fact status
+    status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].timer else 'Down' }}"
