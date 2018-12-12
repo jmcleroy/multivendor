@@ -29,7 +29,7 @@
     peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
     status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].timer else 'Down' }}"
 
-- name: set facts
+- name: set facts for inventory_hostname
   set_fact:
     peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
     status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].timer else 'Down' }}"
