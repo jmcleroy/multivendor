@@ -14,7 +14,6 @@
           {{inventory_hostname}}
           PLATFORM: {{ansible_network_os}} MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
 
----
 - name: multivendor playbook example
   hosts: rtr3
   gather_facts: false
