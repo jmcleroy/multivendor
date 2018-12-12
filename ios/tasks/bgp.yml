@@ -6,4 +6,4 @@
 
 - name: push config to device
   cli_config:
-    src: bgp.j2
+    config: "{{ lookup('template', 'bgp.j2') }}"
