@@ -7,3 +7,10 @@
     - name: include relevant network platform role
       include_role:
         name: "{{ansible_network_os}}"
+
+    - name: print out some network facts
+      debug:
+        msg: |
+          {{inventory_hostname}}
+          MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
+          ******
