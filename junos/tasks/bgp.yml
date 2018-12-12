@@ -15,11 +15,11 @@
 #   junos_config:
 #     src: bgp.j2
 #
-# - name: grab bgp status
-#   connection: netconf
-#   junos_command:
-#     commands: show bgp summary | display json
-#   register: output
+- name: grab bgp status
+  connection: netconf
+  junos_command:
+    commands: show bgp summary | display json
+  register: output
 
 - name: Print BGP Status In JSON
   debug:
