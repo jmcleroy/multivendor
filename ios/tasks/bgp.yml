@@ -20,7 +20,7 @@
 - name: use command parser
   command_parser:
     file: "/home/student1/.ansible/roles/ansible-network.cisco_ios/parser_templates/cli/show_ip_bgp_summary.yaml"
-    content: "{{ show_ip_bgp_summary.stdout.0 }}"
+    content: "{{ show_ip_bgp_summary.stdout }}"
 
 - name: sean's debug
   debug:
