@@ -1,5 +1,5 @@
 router bgp {{device[inventory_hostname].asn}}
  bgp log-neighbor-changes
- neighbor {{hostvars.rtr4.private_ip}}
+ neighbor {{hostvars.rtr4.private_ip}} remote-as {{device.rtr4.asn}} 
  neighbor {{hostvars.rtr4.private_ip}} ebgp-multihop 255
  neighbor {{hostvars.rtr4.private_ip}} update-source GigabitEthernet1
