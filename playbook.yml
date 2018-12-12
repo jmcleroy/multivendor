@@ -1,18 +1,18 @@
-# ---
-# - name: multivendor playbook example
-#   hosts: routers
-#   gather_facts: false
-#   connection: network_cli
-#   tasks:
-#     - name: include relevant network platform role
-#       include_role:
-#         name: "{{ansible_network_os}}"
-#
-#     - name: print out some network facts
-#       debug:
-#         msg: |
-#           {{inventory_hostname}}
-#           PLATFORM: {{ansible_network_os}} MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
+---
+- name: multivendor playbook example
+  hosts: routers
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: include relevant network platform role
+      include_role:
+        name: "{{ansible_network_os}}"
+
+    - name: print out some network facts
+      debug:
+        msg: |
+          {{inventory_hostname}}
+          PLATFORM: {{ansible_network_os}} MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
 
 - name: multivendor bgp example
   hosts: rtr2,rtr4
