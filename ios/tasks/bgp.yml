@@ -27,4 +27,4 @@
     msg: 'BGP STATUS FOR {{peer}} IS {{status}}'
   vars:
     peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
-    status: "{{ (ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first).state_pfxrcd }}"
+    status: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].state_pfxrcd }}"
