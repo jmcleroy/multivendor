@@ -1,5 +1,9 @@
+interface Loopback0
+ ip address {{device[inventory_hostname].loopback}} 255.255.255.255
+
 router bgp {{device[inventory_hostname].asn}}
  bgp log-neighbor-changes
- neighbor {{hostvars.rtr4.private_ip}} remote-as {{device.rtr4.asn}} 
+ bgp router-id {{device[inventory_hostname].loopback}}
+ neighbor {{hostvars.rtr4.private_ip}} remote-as {{device.rtr4.asn}}
  neighbor {{hostvars.rtr4.private_ip}} ebgp-multihop 255
  neighbor {{hostvars.rtr4.private_ip}} update-source GigabitEthernet1
