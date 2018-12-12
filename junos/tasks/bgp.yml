@@ -4,8 +4,13 @@
     src: bgp.j2
     dest: "{{playbook_dir}}/rendered_configs/{{inventory_hostname}}-bgp.txt"
 
+# - name: push config to device
+#   connection: netconf
+#   netconf_config:
+#     content: "{{ lookup('template', 'bgp.j2') }}"
+#     format: text
+
 - name: push config to device
   connection: netconf
-  netconf_config:
-    content: "{{ lookup('template', 'bgp.j2') }}"
-    format: text
+  junos_config:
+    src: bgp.j
