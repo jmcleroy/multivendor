@@ -11,7 +11,7 @@ protocols {
             neighbor {{hostvars.rtr2.private_ip}} {
                 description cisco;
                 local-address {{private_ip}};
-                peer-as {{device.rtr4.asn}};
+                peer-as {{device.rtr2.asn}};
             }
         }
     }
