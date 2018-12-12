@@ -28,7 +28,7 @@
 
 - name: print out the output
   debug:
-    var: bgp
+    var: ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp
 
 - name: print out more
   debug:
