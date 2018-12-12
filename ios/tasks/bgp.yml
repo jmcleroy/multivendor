@@ -34,4 +34,5 @@
     peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
 
 - name: set_fact status
+  set_fact:
     status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].timer else 'Down' }}"
