@@ -1,7 +1,9 @@
+---
 - name: multivendor playbook example
   hosts: routers
   gather_facts: false
   connection: network_cli
   tasks:
     - name: include relevant network platform role
-      include_role: "{{ansible_network_os}}"
+      include_role:
+        name: "{{ansible_network_os}}"
