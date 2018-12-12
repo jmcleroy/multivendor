@@ -8,11 +8,16 @@
   cli_config:
     config: "{{ lookup('template', 'bgp.j2') }}"
 
+- name: grab bgp output
+  cli_command:
+    command: show ip bgp summary
+  register: show_ip_bgp_summary
+
 - name: import the network-engine role
   import_role:
     name: ansible-network.network-engine
 
-- name: Generate interface facts as JSON
+- name: use command parser
   command_parser:
-    file: "/home/student1/.ansible/roles/ansible-network.cisco_ios/parser_templates"
-    content: "{{ ios_interface_output.stdout.0 }}"
+    file: "/home/student1/.ansible/roles/ansible-network.cisco_ios/parser_templates/show_ip_bgp_summary.yaml"
+    content: "{{ show_ip_bgp_summary.stdout.0 }}"
