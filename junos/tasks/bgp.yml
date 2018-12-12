@@ -15,7 +15,7 @@
   junos_config:
     src: bgp.j2
 
-- name: push config to device
+- name: grab bgp status
   connection: netconf
   junos_command:
     commands: show bgp summary | display json
@@ -23,4 +23,4 @@
 
 - name: Print BGP Status In JSON
   debug:
-    var: output["msg"]
+    var: output
