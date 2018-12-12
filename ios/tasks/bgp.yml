@@ -27,4 +27,4 @@
     msg: 'BGP STATUS FOR {{peer}} IS {{status}}'
   vars:
     peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
-    status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].state_pfxrcd else 'Down' }}"
+    status: "{{ 'Established' if ':' in ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors[peer].timer else 'Down' }}"
