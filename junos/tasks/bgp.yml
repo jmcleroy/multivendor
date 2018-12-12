@@ -23,4 +23,4 @@
 
 - name: Print BGP Status In JSON
   debug:
-    var: output
+    var: (output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-state"][0]["data"]
