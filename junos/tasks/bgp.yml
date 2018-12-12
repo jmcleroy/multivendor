@@ -7,4 +7,4 @@
 - name: push config to device
   connection: netconf
   netconf_config:
-    config: "{{ lookup('template', 'bgp.j2') }}"
+    content: "{{ lookup('template', 'bgp.j2') }}"
