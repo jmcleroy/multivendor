@@ -1,29 +1,29 @@
-- name: template the configuration locally
-  connection: local
-  template:
-    src: bgp.j2
-    dest: "{{playbook_dir}}/rendered_configs/{{inventory_hostname}}-bgp.txt"
-
+# - name: template the configuration locally
+#   connection: local
+#   template:
+#     src: bgp.j2
+#     dest: "{{playbook_dir}}/rendered_configs/{{inventory_hostname}}-bgp.txt"
+#
+# # - name: push config to device
+# #   connection: netconf
+# #   netconf_config:
+# #     content: "{{ lookup('template', 'bgp.j2') }}"
+# #     format: text
+#
 # - name: push config to device
 #   connection: netconf
-#   netconf_config:
-#     content: "{{ lookup('template', 'bgp.j2') }}"
-#     format: text
-
-- name: push config to device
-  connection: netconf
-  junos_config:
-    src: bgp.j2
-
-- name: grab bgp status
-  connection: netconf
-  junos_command:
-    commands: show bgp summary | display json
-  register: output
+#   junos_config:
+#     src: bgp.j2
+#
+# - name: grab bgp status
+#   connection: netconf
+#   junos_command:
+#     commands: show bgp summary | display json
+#   register: output
 
 - name: Print BGP Status In JSON
   debug:
     msg: 'BGP STATUS {{peer}}:{{status}}'
   vars:
-    peer: '{{(output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-address"][0]}}'
+    peer: '{{(output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-address"][0]["data"}}'
     status: '{{(output.stdout|first)["bgp-information"][0]["bgp-peer"][0]["peer-state"][0]["data"]}}'
