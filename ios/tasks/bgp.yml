@@ -24,9 +24,7 @@
 
 - name: print out the output
   debug:
-    msg: "{{item}}"
-  loop: ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors
-
-- name: print out more
-  debug:
-    var: neighbors
+    msg: 'BGP STATUS FOR {{peer}} IS {{status}}'
+  vars:
+    peer: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first }}"
+    status: "{{ ansible_facts.cisco_ios.vrf.DEFAULT.protocols.bgp.neighbors | first).state_pfxrcd }}"
