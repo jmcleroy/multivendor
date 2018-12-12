@@ -1,4 +1,4 @@
-- name: grab IOS fa
+- name: grab IOS facts
   ios_facts:
 
 - name: print out some network facts
