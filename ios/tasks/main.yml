@@ -1,2 +1,9 @@
-- name: disable netconf service
+- name: grab IOS fa
   ios_facts:
+
+- name: print out some network facts
+  debug:
+    msg: |
+      {{inventory_hostname}}
+      MODEL: {{ansible_net_model}} CODE: {{ansible_net_version}}
+      ******
