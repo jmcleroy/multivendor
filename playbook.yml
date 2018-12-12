@@ -23,3 +23,7 @@
       include_role:
         name: "{{ansible_network_os}}"
         tasks_from: bgp.yml
+
+    - name: print out the output
+      debug:
+        msg: 'BGP STATUS FOR {{peer}} IS {{status}}'

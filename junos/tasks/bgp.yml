@@ -9,6 +9,7 @@
 #   netconf_config:
 #     content: "{{ lookup('template', 'bgp.j2') }}"
 #     format: text
+# NOTE FROM SEAN: needs some more work... this option to send non-xml is only available from junos_config, thread on email internal
 
 - name: push config to device
   connection: netconf
