@@ -1,4 +1,4 @@
-router bgp {{device.inventory_hostname}}
+router bgp {{device.inventory_hostname.asn}}
  bgp log-neighbor-changes
  neighbor {{hostvars.rtr4.private_ip}}
  neighbor {{hostvars.rtr4.private_ip}} ebgp-multihop 255
