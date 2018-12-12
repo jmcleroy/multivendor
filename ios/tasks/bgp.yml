@@ -7,3 +7,12 @@
 - name: push config to device
   cli_config:
     config: "{{ lookup('template', 'bgp.j2') }}"
+
+- name: import the network-engine role
+  import_role:
+    name: ansible-network.network-engine
+
+- name: Generate interface facts as JSON
+  command_parser:
+    file: "/home/student1/.ansible/roles/ansible-network.cisco_ios/parser_templates"
+    content: "{{ ios_interface_output.stdout.0 }}"
