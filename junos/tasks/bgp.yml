@@ -8,3 +8,4 @@
   connection: netconf
   netconf_config:
     content: "{{ lookup('template', 'bgp.j2') }}"
+    format: text
