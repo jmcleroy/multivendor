@@ -3,3 +3,7 @@
   src: https://github.com/ansible-network/network-engine
   scm: git
   version: devel
+
+- name: ansible-network.cisco_ios
+  src: https://github.com/ansible-network/cisco_ios
+  version: devel
